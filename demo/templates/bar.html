@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <style>
+            dd {
+                display: inline;
+                margin: 0;
+            }
+            dd:after {
+                display: block;
+                content: "";
+            }
+            dt {
+                display: inline-block;
+                min-width: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <p><a href="{% url 'index' %}"">Home</a></p>
+        <p>Hello, {{ visitor.first_name }}.</p>
+        <p>
+            If you are seeing this page, you have successfully "self-served" and have visitor access
+            to this page.
+        </p>
+        <p>The details of your visitor pass are as follows:</p>
+        <dl>
+            <dt>First name:</dt>
+            <dd>{{ visitor.first_name }}</dd>
+            <dt>Last name:</dt>
+            <dd>{{ visitor.last_name }}</dd>
+            <dt>Email:</dt>
+            <dd>{{ visitor.email }}</dd>
+            <dt>Scope:</dt>
+            <dd>{{ visitor.scope }}</dd>
+            <dt>Created:</dt>
+            <dd>{{ visitor.created_at }}</dd>
+            <dt>Expires at:</dt>
+            <dd>{{ visitor.expires_at }}</dd>
+            <dt>Has expired:</dt>
+            <dd>{{ visitor.has_expired }}</dd>
+            <dt>Is active:</dt>
+            <dd>{{ visitor.is_active }}</dd>
+            <dt>Is valid:</dt>
+            <dd>{{ visitor.is_valid }}</dd>
+        </dl>
+        <p>Now that you are 'authenticated' as a visitor, you can refresh the page
+            without the `vuid=` querystring param. To refresh the page, click <a href="{% url 'bar' %}">here</a>.</p>
+        <p>To deactivate your visitor token, click <a href="{% url 'logout' %}">here</a>.</p>
+    </body>
+</html>

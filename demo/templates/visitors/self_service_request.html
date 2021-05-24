@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <style>
+            input {
+                display: list-item;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="max-width: 800px">
+            <h1>Access Denied</h1>
+            <h2>Self-Service demonstration</h2>
+            <p>
+                You have been denied access to a page that requires a Visitor Pass. This page is
+                marked as 'self-service', which means that you can grant yourself access by filling
+                in the details below.
+            </p>
+            {% if DEBUG %}
+            <p>
+                Running in DEBUG mode this demo does not send out email notifications once the
+                visitor pass is created, but will instead display a success page. In production you
+                should handle the `self_service_visitor_created` signal to send out the email.
+            </p>
+            <p>
+                NB in production the visitor pass will be emailed to you, as we require confirmation
+                that you are the owner of the email address.
+            </p>
+            {% endif %}
+            <form action="." method="post">
+                {% csrf_token %} {{ form }}
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+    </body>
+</html>

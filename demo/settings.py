@@ -10,7 +10,7 @@ TEMPLATE_DEBUG = True
 USE_TZ = True
 USE_L10N = True
 
-DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "test.db"}}
+DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "demo.db"}}
 
 INSTALLED_APPS = (
     "django.contrib.admin",
@@ -20,6 +20,7 @@ INSTALLED_APPS = (
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "visitors",
+    "demo",
 )
 
 MIDDLEWARE = [
@@ -77,7 +78,7 @@ LOGGING = {
     },
 }
 
-ROOT_URLCONF = "tests.urls"
+ROOT_URLCONF = "demo.urls"
 
 if not DEBUG:
     raise Exception("This settings file can only be used with DEBUG=True")

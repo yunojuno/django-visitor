@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <h1>Django Visitor Pass</h1>
+        <h2>Self-Service demonstration</h2>
+        <p>A new visitor pass has been created for you.</p>
+        <p>
+            In a production environment you should connect to the `self_service_visitor_created`
+            signal and send the visitor pass to end user.
+        </p>
+        <p>
+            Link:
+            <a href="{{ visitor.context.redirect_to }}?vuid={{ visitor.uuid }}">{{ visitor.context.redirect_to }}?vuid={{ visitor.uuid }}</a>
+        </p>
+    </body>
+</html>
